@@ -9,26 +9,26 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+Lead <- read.csv("../DataRaw/lead-iq-01.csv")
+head(Lead)
+```
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-
-library(readxl)
-Lead <- read_excel("/Volumes/Macintosh HD/Users/cindy/Lead.xlsx")
-View(Lead)
 
 ## Part A
+```{r}
 library(ggplot2)
 ggplot(Lead, aes(Smelter, IQ, colour = IQ)) + 
   geom_point() +
   ggtitle("IQ Levels by Location Status")
+```
 
 ## Part B
 
+```{r}
 knitr::kable(Lead, "pipe")
+```
 
 ## Part C
 
@@ -39,15 +39,17 @@ The scatter plot visually illustrates the relationship between IQ levels and sme
 Each row in the table corresponds to a specific data point, displaying attributes such as smelter location and IQ score.
 
 ##Part D
-
+```{r}
 mean_value <- mean(Lead$IQ)
 
 print(mean_value)
+```
+
 
 ##Part E
 
+```{r}
 Lead[Lead$IQ == 999, "IQ"] <- 99
-
 library(ggplot2)
 ggplot(Lead, aes(Smelter, IQ, colour = IQ)) + 
   geom_point() +
@@ -58,3 +60,6 @@ knitr::kable(Lead, "pipe")
 mean_value <- mean(Lead$IQ)
 
 print(mean_value)
+```
+
+
