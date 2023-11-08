@@ -1,0 +1,57 @@
+---
+title: "Lead-IQ-01"
+author: "Cindy Zavala"
+date: "10/8/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+Lead <- read.csv("../DataRaw/lead-iq-01.csv")
+head(Lead)
+```
+
+## Part A
+```{r}
+library(ggplot2)
+ggplot(Lead, aes(Smelter, IQ, colour = IQ)) + 
+  geom_point() +
+  ggtitle("IQ Levels by Location Status")
+```
+
+## Part B
+```{r}
+knitr::kable(Lead, "pipe")
+```
+
+## Part C
+
+##Graph (Scatter Plot):
+The scatter plot visually illustrates the relationship between IQ levels and smelter locations. 
+
+##Table (Data Summary):
+Each row in the table corresponds to a specific data point, displaying attributes such as smelter location and IQ score.
+
+##Part D
+```{r}
+mean_value <- mean(Lead$IQ)
+
+print(mean_value)
+```
+
+##Part E
+```{r}
+hist(Lead$IQ, 
+     main = "Histogram of IQ",
+     xlab = "IQ Score",
+     ylab = "Frequency",
+     col = "skyblue",
+     border = "black")
+```
+
+
+     
+  
